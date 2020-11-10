@@ -97,7 +97,7 @@ def factors(num):
     if num < 0:
         num *= -1
     facts = []
-    for i in range(1, math.ceil((num+1)/2)):
+    for i in range(1, math.ceil((num+1)/2)+1): # +1 to ensure you always get the correct number of iterations
         if num % i == 0:
             facts.append(i)
             facts.append(int(num/i))
