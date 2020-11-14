@@ -97,8 +97,12 @@ def factors(num):
     if num < 0:
         num *= -1
     facts = []
-    for i in range(1, math.ceil((num+1)/2)+1): # +1 to ensure you always get the correct number of iterations
+    last = None
+    for i in range(1, math.ceil((num+1)/2)+1):
+        if last != None and i == last:
+            break
         if num % i == 0:
+            last = int(num/i)
             facts.append(i)
             facts.append(int(num/i))
             facts.append(-i)
@@ -222,4 +226,4 @@ def real_zeros_program():
         print(f'f(x) = {func}')
     else:
         print("No real zeros exist for these coefficients")
-
+real_zeros_program()
